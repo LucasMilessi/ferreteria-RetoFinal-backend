@@ -57,6 +57,10 @@ public class Cliente {
         this.cedula = cedula;
     }
 
+    public void setClienteId(String clienteId) {
+        this.clienteId = clienteId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -24,4 +24,23 @@ public class ClienteServiceImpl implements IClienteService {
     public Flux<Cliente> findAllCliente() {
         return this.clienteRepository.findAll();
     }
+
+    @Override
+    public Mono<Cliente> updateCliente(String clienteId, Cliente cliente) {
+        return this.clienteRepository
+                .findById(clienteId)
+                .flatMap(clienteUpdate -> {
+                    cliente.setClienteId(clienteId);
+                    return addCliente(cliente);
+                })
+                .switchIfEmpty(Mono.empty());
+    }
+
+    @Override
+    public Mono<Cliente> deleteCliente(String clienteId) {
+        return this.clienteRepository
+                .findById(clienteId)
+                .flatMap(clienteDelete -> this.clienteRepository.deleteById(clienteDelete.getClienteId())
+                        .thenReturn(clienteDelete));
+    }
 }
