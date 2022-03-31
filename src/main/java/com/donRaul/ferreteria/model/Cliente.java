@@ -22,12 +22,12 @@ public class Cliente {
 
     public Cliente() {}
 
-    public Cliente(String cedula, String nombre, String celular) {
-        this.cedula = cedula;
+    public Cliente(String clienteId, String nombre, String celular, String cedula) {
+        this.clienteId = clienteId;
         this.nombre = nombre;
         this.celular = celular;
+        this.cedula = cedula;
     }
-
 
     public String getClienteId() {
         return clienteId;

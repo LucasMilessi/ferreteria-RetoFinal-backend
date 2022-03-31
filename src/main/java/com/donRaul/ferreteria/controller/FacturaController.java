@@ -46,6 +46,4 @@ public class FacturaController {
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound()
                         .build()));
     }
-
-
 }

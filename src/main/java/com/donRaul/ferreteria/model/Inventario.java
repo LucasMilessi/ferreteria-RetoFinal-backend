@@ -16,10 +16,10 @@ public class Inventario {
     public Inventario() {
     }
 
-    public Inventario(List<Producto> listaDeProductos) {
+    public Inventario(String inventarioId, List<Producto> listaDeProductos) {
+        this.inventarioId = inventarioId;
         this.listaDeProductos = listaDeProductos;
     }
-
 
     public String getInventarioId() {
         return inventarioId;
