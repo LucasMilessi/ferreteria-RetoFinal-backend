@@ -22,6 +22,12 @@ public class ProveedorController {
                 .findAllProveedor();
     }
 
+    @GetMapping("/{id}/Proveedor")
+    private Mono<Proveedor> proveedorById(@PathVariable("id") String idProveedor){
+        return this.proveedorService
+                .proveedorById(idProveedor);
+    }
+
     @PostMapping("/Proveedor")
     private Mono<Proveedor> addProveedor(@RequestBody Proveedor proveedor) {
         return this.proveedorService

@@ -10,6 +10,8 @@ public interface IProveedorService {
 
     Flux<Proveedor> findAllProveedor();
 
+    Mono<Proveedor> proveedorById(String proveedorId);
+
     Mono<Proveedor> updateProveedor(Proveedor proveedor, String proveedorId);
 
     Mono<Proveedor> deleteProveedor(String proveedorId);

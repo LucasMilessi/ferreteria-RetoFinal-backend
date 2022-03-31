@@ -2,12 +2,16 @@ package com.donRaul.ferreteria.controller;
 
 import com.donRaul.ferreteria.model.Factura;
 import com.donRaul.ferreteria.model.Inventario;
+import com.donRaul.ferreteria.model.Producto;
 import com.donRaul.ferreteria.service.IInventarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -46,5 +50,18 @@ public class InventarioController {
                         Mono.just(ResponseEntity.ok(inventario1)))
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound()
                         .build()));
+    }
+
+    @GetMapping(value = "/inventario/compras")
+    private Flux<Inventario> productosCompradosInv() {
+        return this.inventarioService
+                .findAllInventario()
+                .map(prodComprados -> {
+                    List<Producto> listaDeProductosComprados = prodComprados.getListaDeProductos()
+                            .stream()
+                            .filter(listProd -> listProd.isEstadoProducto() == true).collect(Collectors.toList());
+                    prodComprados.setListaDeProductos(listaDeProductosComprados);
+                    return prodComprados;
+                }).filter(inventario -> inventario.getListaDeProductos().size() > 0);
     }
 }

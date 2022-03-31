@@ -26,6 +26,11 @@ public class ProveedorServiceImpl implements IProveedorService {
                 .findAll();
     }
 
+    public Mono<Proveedor> proveedorById(String proveedorId){
+        return this.proveedorRepository
+                .findById(proveedorId);
+    }
+
     @Override
     public Mono<Proveedor> updateProveedor(Proveedor proveedor, String proveedorId){
         return this.proveedorRepository

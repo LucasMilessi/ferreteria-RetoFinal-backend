@@ -16,12 +16,15 @@ public class Producto {
 
     private double precio;
 
+    private boolean estadoProducto; //true si esta comprado y false si todavia no se a vendido
+
 
     public Producto() {}
 
-    public Producto(String nombreProducto, double precio) {
+    public Producto(String nombreProducto, double precio, boolean estadoProducto) {
         this.nombreProducto = nombreProducto;
         this.precio = precio;
+        this.estadoProducto = estadoProducto;
     }
 
     public String getProductoId() {
@@ -48,17 +51,25 @@ public class Producto {
         this.precio = precio;
     }
 
+    public boolean isEstadoProducto() {
+        return estadoProducto;
+    }
+
+    public void setEstadoProducto(boolean estadoProducto) {
+        this.estadoProducto = estadoProducto;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return Double.compare(producto.precio, precio) == 0 && Objects.equals(productoId, producto.productoId) && Objects.equals(nombreProducto, producto.nombreProducto);
+        return Double.compare(producto.precio, precio) == 0 && estadoProducto == producto.estadoProducto && Objects.equals(productoId, producto.productoId) && Objects.equals(nombreProducto, producto.nombreProducto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productoId, nombreProducto, precio);
+        return Objects.hash(productoId, nombreProducto, precio, estadoProducto);
     }
 
     @Override
@@ -67,6 +78,7 @@ public class Producto {
                 "productoId='" + productoId + '\'' +
                 ", nombreProducto='" + nombreProducto + '\'' +
                 ", precio=" + precio +
+                ", estadoProducto=" + estadoProducto +
                 '}';
     }
 }

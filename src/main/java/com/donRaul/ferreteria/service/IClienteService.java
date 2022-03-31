@@ -10,6 +10,8 @@ public interface IClienteService {
 
     Flux<Cliente> findAllCliente();
 
+    Mono<Cliente> clienteById(String clienteId);
+
     Mono<Cliente> updateCliente(String clienteId, Cliente cliente);
 
     Mono<Cliente> deleteCliente(String clienteId);

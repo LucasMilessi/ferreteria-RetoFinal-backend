@@ -22,6 +22,12 @@ public class ClienteController {
         return this.clienteService.findAllCliente();
     }
 
+    @GetMapping("/{id}/cliente")
+    private Mono<Cliente> clienteById(@PathVariable("id") String idCliente){
+        return this.clienteService
+                .clienteById(idCliente);
+    }
+
     @PostMapping("/cliente")
     private Mono<Cliente> addCliente(@RequestBody Cliente cliente) {
         return this.clienteService.addCliente(cliente);

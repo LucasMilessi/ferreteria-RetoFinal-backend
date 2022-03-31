@@ -25,6 +25,11 @@ public class ClienteServiceImpl implements IClienteService {
         return this.clienteRepository.findAll();
     }
 
+    public Mono<Cliente> clienteById(String clienteId){
+        return this.clienteRepository
+                .findById(clienteId);
+    }
+
     @Override
     public Mono<Cliente> updateCliente(String clienteId, Cliente cliente) {
         return this.clienteRepository
