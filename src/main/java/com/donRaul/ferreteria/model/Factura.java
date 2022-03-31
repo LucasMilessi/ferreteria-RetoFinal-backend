@@ -16,11 +16,11 @@ public class Factura {
 
     private long consecutivo;
 
-    private Date Fecha;
+    private Date fecha;
 
-    private Cliente nombreCliente;
+    private String nombreCliente;
 
-    private String clienteAtendidoPor; //El empleado de la ferreteria atiende al cliente
+    private String clienteAtendidoPor;
 
     private List<Producto> productos;
 
@@ -29,9 +29,9 @@ public class Factura {
 
     public Factura() {}
 
-    public Factura(long consecutivo, Date fecha, Cliente nombreCliente, String clienteAtendidoPor, List<Producto> productos, double totalPagar) {
+    public Factura(long consecutivo, Date fecha, String nombreCliente, String clienteAtendidoPor, List<Producto> productos, double totalPagar) {
         this.consecutivo = consecutivo;
-        Fecha = fecha;
+        this.fecha = fecha;
         this.nombreCliente = nombreCliente;
         this.clienteAtendidoPor = clienteAtendidoPor;
         this.productos = productos;
@@ -55,18 +55,18 @@ public class Factura {
     }
 
     public Date getFecha() {
-        return Fecha;
+        return fecha;
     }
 
     public void setFecha(Date fecha) {
-        Fecha = fecha;
+        this.fecha = fecha;
     }
 
-    public Cliente getNombreCliente() {
+    public String getNombreCliente() {
         return nombreCliente;
     }
 
-    public void setNombreCliente(Cliente nombreCliente) {
+    public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
     }
 
@@ -99,12 +99,12 @@ public class Factura {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Factura factura = (Factura) o;
-        return consecutivo == factura.consecutivo && Double.compare(factura.totalPagar, totalPagar) == 0 && Objects.equals(facturaId, factura.facturaId) && Objects.equals(Fecha, factura.Fecha) && Objects.equals(nombreCliente, factura.nombreCliente) && Objects.equals(clienteAtendidoPor, factura.clienteAtendidoPor) && Objects.equals(productos, factura.productos);
+        return consecutivo == factura.consecutivo && Double.compare(factura.totalPagar, totalPagar) == 0 && Objects.equals(facturaId, factura.facturaId) && Objects.equals(fecha, factura.fecha) && Objects.equals(nombreCliente, factura.nombreCliente) && Objects.equals(clienteAtendidoPor, factura.clienteAtendidoPor) && Objects.equals(productos, factura.productos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(facturaId, consecutivo, Fecha, nombreCliente, clienteAtendidoPor, productos, totalPagar);
+        return Objects.hash(facturaId, consecutivo, fecha, nombreCliente, clienteAtendidoPor, productos, totalPagar);
     }
 
     @Override
@@ -112,7 +112,7 @@ public class Factura {
         return "Factura{" +
                 "facturaId='" + facturaId + '\'' +
                 ", consecutivo=" + consecutivo +
-                ", Fecha=" + Fecha +
+                ", Fecha=" + fecha +
                 ", nombreCliente=" + nombreCliente +
                 ", clienteAtendidoPor='" + clienteAtendidoPor + '\'' +
                 ", productos=" + productos +

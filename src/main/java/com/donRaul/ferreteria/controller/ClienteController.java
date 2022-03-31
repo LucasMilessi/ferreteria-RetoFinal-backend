@@ -23,7 +23,6 @@ public class ClienteController {
     }
 
     @PostMapping("/cliente")
-    @ResponseStatus(HttpStatus.CREATED)
     private Mono<Cliente> addCliente(@RequestBody Cliente cliente) {
         return this.clienteService.addCliente(cliente);
     }
