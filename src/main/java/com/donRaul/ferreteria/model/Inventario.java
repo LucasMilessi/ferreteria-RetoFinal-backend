@@ -20,7 +20,8 @@ public class Inventario {
         this.listaDeProductos = listaDeProductos;
     }
 
-    public String inventarioId() {
+
+    public String getInventarioId() {
         return inventarioId;
     }
 
@@ -28,7 +29,7 @@ public class Inventario {
         this.inventarioId = inventarioId;
     }
 
-    public List<Producto> listaDeProductos() {
+    public List<Producto> getListaDeProductos() {
         return listaDeProductos;
     }
 

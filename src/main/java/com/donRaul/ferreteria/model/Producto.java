@@ -24,7 +24,7 @@ public class Producto {
         this.precio = precio;
     }
 
-    public String productoId() {
+    public String getProductoId() {
         return productoId;
     }
 
@@ -32,7 +32,7 @@ public class Producto {
         this.productoId = productoId;
     }
 
-    public String nombreProducto() {
+    public String getNombreProducto() {
         return nombreProducto;
     }
 
@@ -40,7 +40,7 @@ public class Producto {
         this.nombreProducto = nombreProducto;
     }
 
-    public double precio() {
+    public double getPrecio() {
         return precio;
     }
 

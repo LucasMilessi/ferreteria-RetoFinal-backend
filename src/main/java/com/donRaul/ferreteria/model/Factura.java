@@ -38,7 +38,7 @@ public class Factura {
         this.totalPagar = totalPagar;
     }
 
-    public String facturaId() {
+    public String getFacturaId() {
         return facturaId;
     }
 
@@ -46,7 +46,7 @@ public class Factura {
         this.facturaId = facturaId;
     }
 
-    public long consecutivo() {
+    public long getConsecutivo() {
         return consecutivo;
     }
 
@@ -54,7 +54,7 @@ public class Factura {
         this.consecutivo = consecutivo;
     }
 
-    public Date fecha() {
+    public Date getFecha() {
         return Fecha;
     }
 
@@ -62,7 +62,7 @@ public class Factura {
         Fecha = fecha;
     }
 
-    public Cliente nombreCliente() {
+    public Cliente getNombreCliente() {
         return nombreCliente;
     }
 
@@ -70,7 +70,7 @@ public class Factura {
         this.nombreCliente = nombreCliente;
     }
 
-    public String clienteAtendidoPor() {
+    public String getClienteAtendidoPor() {
         return clienteAtendidoPor;
     }
 
@@ -78,7 +78,7 @@ public class Factura {
         this.clienteAtendidoPor = clienteAtendidoPor;
     }
 
-    public List<Producto> productos() {
+    public List<Producto> getProductos() {
         return productos;
     }
 
@@ -86,7 +86,7 @@ public class Factura {
         this.productos = productos;
     }
 
-    public double totalPagar() {
+    public double getTotalPagar() {
         return totalPagar;
     }
 

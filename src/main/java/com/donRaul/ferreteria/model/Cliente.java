@@ -29,19 +29,19 @@ public class Cliente {
     }
 
 
-    public String clienteId() {
+    public String getClienteId() {
         return clienteId;
     }
 
-    public String nombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public String celular() {
+    public String getCelular() {
         return celular;
     }
 
-    public String cedula() {
+    public String getCedula() {
         return cedula;
     }
 

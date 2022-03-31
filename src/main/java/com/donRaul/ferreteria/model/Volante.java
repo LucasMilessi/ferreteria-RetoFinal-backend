@@ -32,7 +32,7 @@ public class Volante {
         this.cedula = cedula;
     }
 
-    public String volanteId() {
+    public String getVolanteId() {
         return volanteId;
     }
 
@@ -40,7 +40,7 @@ public class Volante {
         this.volanteId = volanteId;
     }
 
-    public Proveedor nombreProveedor() {
+    public Proveedor getNombreProveedor() {
         return nombreProveedor;
     }
 
@@ -48,7 +48,7 @@ public class Volante {
         this.nombreProveedor = nombreProveedor;
     }
 
-    public List<Producto> productos() {
+    public List<Producto> getProductos() {
         return productos;
     }
 
@@ -56,7 +56,7 @@ public class Volante {
         this.productos = productos;
     }
 
-    public Date fecha() {
+    public Date getFecha() {
         return Fecha;
     }
 
@@ -64,7 +64,7 @@ public class Volante {
         Fecha = fecha;
     }
 
-    public Proveedor cedula() {
+    public Proveedor getCedula() {
         return cedula;
     }
 

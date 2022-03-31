@@ -28,7 +28,7 @@ public class Proveedor {
         this.celular = celular;
     }
 
-    public String proveedoresId() {
+    public String getProveedoresId() {
         return proveedoresId;
     }
 
@@ -36,7 +36,7 @@ public class Proveedor {
         this.proveedoresId = proveedoresId;
     }
 
-    public String cedula() {
+    public String getCedula() {
         return cedula;
     }
 
@@ -44,7 +44,7 @@ public class Proveedor {
         this.cedula = cedula;
     }
 
-    public String nombre() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -52,7 +52,7 @@ public class Proveedor {
         this.nombre = nombre;
     }
 
-    public String celular() {
+    public String getCelular() {
         return celular;
     }
 
