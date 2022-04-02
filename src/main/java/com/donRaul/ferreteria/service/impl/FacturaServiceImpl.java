@@ -30,7 +30,7 @@ public class FacturaServiceImpl implements IFacturaService {
         return this.facturaRepository
                 .findById(facturaId)
                 .flatMap(updateFac -> {
-                    factura.setFacturaId(facturaId);
+                    factura.setConsecutivo(facturaId);
                     return addFactura(factura);
                 })
                 .switchIfEmpty(Mono.empty());
@@ -41,7 +41,7 @@ public class FacturaServiceImpl implements IFacturaService {
         return this.facturaRepository
                 .findById(facturaId)
                 .flatMap(deleteFact -> this.facturaRepository
-                        .deleteById(deleteFact.getFacturaId())
+                        .deleteById(deleteFact.getConsecutivo())
                         .thenReturn(deleteFact));
     }
 }

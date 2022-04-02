@@ -2,14 +2,13 @@ package com.donRaul.ferreteria.controller;
 
 import com.donRaul.ferreteria.model.Factura;
 import com.donRaul.ferreteria.service.IFacturaService;
-import com.donRaul.ferreteria.service.impl.FacturaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*")
 @RestController
 public class FacturaController {
 
@@ -27,7 +26,7 @@ public class FacturaController {
         return this.facturaService.addFactura(factura);
     }
 
-    @PutMapping("/{id}/factura")
+    @PutMapping("/factura/{id}")
     private Mono<ResponseEntity<Factura>> updateFactura(@RequestBody Factura factura, @PathVariable("id") String facturaId) {
         return this.facturaService
                 .updateFactura(factura, facturaId)

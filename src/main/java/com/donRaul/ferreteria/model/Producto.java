@@ -16,15 +16,27 @@ public class Producto {
 
     private double precio;
 
-    private boolean estadoProducto; //true si esta comprado y false si todavia no se a vendido
+    private int cantidad;
+
+    private Proveedor proveedor;
 
 
     public Producto() {}
 
-    public Producto(String nombreProducto, double precio, boolean estadoProducto) {
+    public Producto(String productoId, String nombreProducto, double precio, int cantidad, Proveedor proveedor) {
+        this.productoId = productoId;
         this.nombreProducto = nombreProducto;
         this.precio = precio;
-        this.estadoProducto = estadoProducto;
+        this.cantidad = cantidad;
+        this.proveedor = proveedor;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 
     public String getProductoId() {
@@ -51,12 +63,12 @@ public class Producto {
         this.precio = precio;
     }
 
-    public boolean isEstadoProducto() {
-        return estadoProducto;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setEstadoProducto(boolean estadoProducto) {
-        this.estadoProducto = estadoProducto;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     @Override
@@ -64,12 +76,12 @@ public class Producto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return Double.compare(producto.precio, precio) == 0 && estadoProducto == producto.estadoProducto && Objects.equals(productoId, producto.productoId) && Objects.equals(nombreProducto, producto.nombreProducto);
+        return Double.compare(producto.precio, precio) == 0 && cantidad == producto.cantidad && Objects.equals(productoId, producto.productoId) && Objects.equals(nombreProducto, producto.nombreProducto) && Objects.equals(proveedor, producto.proveedor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productoId, nombreProducto, precio, estadoProducto);
+        return Objects.hash(productoId, nombreProducto, precio, cantidad, proveedor);
     }
 
     @Override
@@ -78,7 +90,8 @@ public class Producto {
                 "productoId='" + productoId + '\'' +
                 ", nombreProducto='" + nombreProducto + '\'' +
                 ", precio=" + precio +
-                ", estadoProducto=" + estadoProducto +
+                ", cantidad=" + cantidad +
+                ", proveedor=" + proveedor +
                 '}';
     }
 }

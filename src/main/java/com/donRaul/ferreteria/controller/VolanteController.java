@@ -1,6 +1,5 @@
 package com.donRaul.ferreteria.controller;
 
-import com.donRaul.ferreteria.model.Proveedor;
 import com.donRaul.ferreteria.model.Volante;
 import com.donRaul.ferreteria.service.IVolanteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*")
 @RestController
 public class VolanteController {
 

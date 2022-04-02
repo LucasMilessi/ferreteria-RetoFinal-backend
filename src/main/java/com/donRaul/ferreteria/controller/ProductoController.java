@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*")
 @RestController
 public class ProductoController {
 
@@ -36,16 +36,4 @@ public class ProductoController {
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound()
                         .build()));
     }
-
-    @DeleteMapping("/Producto/{id}")
-    private Mono<ResponseEntity<Producto>> deleteProducto(@PathVariable("id") String productoId) {
-        return this.productoService
-                .deleteProducto(productoId)
-                .flatMap(producto1 ->
-                        Mono.just(ResponseEntity.ok(producto1)))
-                .switchIfEmpty(Mono.just(ResponseEntity.notFound()
-                        .build()));
-    }
-
-
 }

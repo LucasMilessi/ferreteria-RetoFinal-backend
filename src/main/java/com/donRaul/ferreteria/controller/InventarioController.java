@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*")
 @RestController
 public class InventarioController {
 
@@ -50,18 +50,5 @@ public class InventarioController {
                         Mono.just(ResponseEntity.ok(inventario1)))
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound()
                         .build()));
-    }
-
-    @GetMapping(value = "/inventario/compras")
-    private Flux<Inventario> productosCompradosInv() {
-        return this.inventarioService
-                .findAllInventario()
-                .map(prodComprados -> {
-                    List<Producto> listaDeProductosComprados = prodComprados.getListaDeProductos()
-                            .stream()
-                            .filter(listProd -> listProd.isEstadoProducto() == true).collect(Collectors.toList());
-                    prodComprados.setListaDeProductos(listaDeProductosComprados);
-                    return prodComprados;
-                }).filter(inventario -> inventario.getListaDeProductos().size() > 0);
     }
 }
